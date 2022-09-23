@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start Page</title>
+</head>
+<body>
+<p>Welcome to the picture gallery</p>
+<a href = "/admin">Access the admin site</a>
+
+{% if image_list1 %}
+    <ul>
+        {% for image in image_list1 %}
+        <li>{{image.date}}</li>
+        {% endfor %}
+    </ul>
+
+    <p>And here is what they look like</p>
+    {% for image in image_list2 %}
+        <img src = "{{ image.url }}">
+    {% endfor %}
+{% else %}
+<p>There are no images in the directory</p>
+{% endif %}
+<img src = "file:///home/david/photo_images/IMG_1194.JPG">
+</body>
+</html>
